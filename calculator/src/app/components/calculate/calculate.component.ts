@@ -14,6 +14,7 @@ export class CalculateComponent {
   operator: string[] = ['+', '-', '*', '/'];
   selectedOperator: string = '+';
   result: number = 0;
+  errorMessage: string = '';
 
   calculate(){
     switch(this.selectedOperator){
@@ -28,6 +29,9 @@ export class CalculateComponent {
         break;
       case '/':
         this.result = this.number1 / this.number2;
+        if(this.number2 === 0){
+          this.errorMessage = 'no se puede dividir por 0';
+        }
         break;
 
     }
